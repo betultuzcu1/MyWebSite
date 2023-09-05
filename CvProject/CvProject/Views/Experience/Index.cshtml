@@ -1,0 +1,53 @@
+﻿@using CvProject.Models.Entity
+@model List<Experience>
+@{
+    ViewBag.Title = "Index";
+    Layout = "~/Views/Shared/_AdminLayout.cshtml";
+}
+
+<div class="card">
+
+    <div class="card-body">
+        <h2>Deneyimlerim</h2>
+        <table class="table">
+            <thead class="thead-light">
+                <tr>
+                    <th scope="col">ID</th>
+                    <th scope="col">Şirket</th>
+                    <th scope="col">Ünvan</th>
+                    <th scope="col">Açıklama</th>
+                    <th scope="col">Tarih</th>
+                    <th scope="col"></th>
+                    <th scope="col"></th>
+                </tr>
+            </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@item.Title</td>
+                        <td>@item.Subtitle</td>
+                        <td>@item.Description</td>
+                        <td>@item.Date</td>
+                        <td>
+                            <a href="/Experience/DeleteExperience/@item.Id" class="btn btn-warning">
+                                Sil
+                            </a>
+                        </td>
+                        <td>
+                            <a href="/Experience/UpdateExperience/@item.Id" class="btn btn-info">
+                                Düzenle
+                            </a>
+                        </td>
+                    </tr>
+                }
+            </tbody>
+        </table>
+        <br />
+        <br />
+        <a href="/Experience/AddExperience/" class="btn btn-primary">Yeni Deneyim Ekle</a>
+    </div>
+</div>
+
+
+
